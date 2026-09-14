@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://byxw57mua0do7"]
+
+[ext_resource type="Texture2D" uid="uid://dyp2y04m6w5ux" path="res://assets/test/background.png" id="1_23bfk"]
+[ext_resource type="Texture2D" uid="uid://cbhn3dtg6yx1h" path="res://assets/test/vending_machine.png" id="2_1c7el"]
+[ext_resource type="Texture2D" uid="uid://yi1gwm3ooof5" path="res://assets/test/default_horu_close.png" id="2_nd6d8"]
+[ext_resource type="PackedScene" uid="uid://cfexwoe0l15wm" path="res://test_ui/keyboard.tscn" id="4_u40ft"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c7el"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nd6d8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TestHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_23bfk")
+
+[node name="TextureRect" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -947.0
+offset_right = 504.0
+grow_vertical = 0
+texture_normal = ExtResource("2_1c7el")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -720.0
+offset_right = 123.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 222
+theme_override_constants/margin_bottom = -15
+
+[node name="clip" type="Control" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(744, 720)
+layout_mode = 2
+
+[node name="animatedsprite" type="AnimatedSprite2D" parent="VBoxContainer/MarginContainer/clip"]
+sprite_frames = SubResource("SpriteFrames_1c7el")
+centered = false
+flip_h = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+
+[node name="Keyboard" parent="VBoxContainer/MarginContainer2" instance=ExtResource("4_u40ft")]
+layout_mode = 2

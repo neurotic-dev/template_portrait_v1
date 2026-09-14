@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwv3mo3ltobyp"
-path="res://.godot/imported/character_tester_walk_front1.png-509a8dfc468e00ce62c2418741f937bb.ctex"
+uid="uid://cbhn3dtg6yx1h"
+path="res://.godot/imported/vending_machine.png-59024ea9695fbe4942e1c84bae597eae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/character/demo/character_tester_walk_front1.png"
-dest_files=["res://.godot/imported/character_tester_walk_front1.png-509a8dfc468e00ce62c2418741f937bb.ctex"]
+source_file="res://assets/test/vending_machine.png"
+dest_files=["res://.godot/imported/vending_machine.png-59024ea9695fbe4942e1c84bae597eae.ctex"]
 
 [params]
 

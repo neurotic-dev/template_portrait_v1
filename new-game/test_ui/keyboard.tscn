@@ -1,0 +1,374 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfexwoe0l15wm"]
+
+[ext_resource type="Texture2D" uid="uid://63c6s75icyln" path="res://assets/test/kb/enter_n.png" id="1_dk385"]
+[ext_resource type="Script" uid="uid://cterol08k7ey8" path="res://test_ui/keyboard.gd" id="1_yo6c0"]
+[ext_resource type="Texture2D" uid="uid://b4mj53ilvqlfd" path="res://assets/test/kb/enter_h.png" id="2_iq8fq"]
+[ext_resource type="FontFile" uid="uid://1kg8s02wovdu" path="res://assets/test/kb/Play-Bold.ttf" id="2_yo6c0"]
+
+[sub_resource type="FontVariation" id="FontVariation_n6o5a"]
+base_font = ExtResource("2_yo6c0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk385"]
+bg_color = Color(0.16078432, 0.09803922, 0.45490196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 3
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fidqm"]
+bg_color = Color(0.91764706, 0.105882354, 0.37254903, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_size = 3
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6o5a"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="FontVariation" id="FontVariation_iq8fq"]
+base_font = ExtResource("2_yo6c0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo6c0"]
+texture = ExtResource("1_dk385")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6o5a"]
+texture = ExtResource("2_iq8fq")
+
+[node name="Keyboard" type="Control"]
+custom_minimum_size = Vector2(720, 331)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -949.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yo6c0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18000486, 0.18000486, 0.18000486, 1)
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 66.0
+offset_right = 87.0
+offset_bottom = 111.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_n6o5a")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_dk385")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fidqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fidqm")
+text = "1"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 11.0
+offset_right = 688.0
+offset_bottom = 57.0
+theme_override_fonts/font = SubResource("FontVariation_n6o5a")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_n6o5a")
+placeholder_text = "Type something here..."
+alignment = 1
+
+[node name="key_container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 66.0
+offset_right = 626.0
+offset_bottom = 258.0
+
+[node name="0" type="HBoxContainer" parent="key_container"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button4" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button5" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button6" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button7" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button8" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button9" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button10" type="Button" parent="key_container/0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="1" type="HBoxContainer" parent="key_container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="key_container/1"]
+layout_mode = 2
+theme_override_constants/margin_left = 19
+
+[node name="Button" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button4" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button5" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button6" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button7" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button8" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button9" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button10" type="Button" parent="key_container/1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="2" type="HBoxContainer" parent="key_container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="key_container/2"]
+layout_mode = 2
+theme_override_constants/margin_left = 43
+
+[node name="Button" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button4" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button5" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button6" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button7" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button8" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button9" type="Button" parent="key_container/2"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="3" type="HBoxContainer" parent="key_container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="key_container/3"]
+layout_mode = 2
+theme_override_constants/margin_left = 68
+
+[node name="Button" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button4" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button5" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button6" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="Button7" type="Button" parent="key_container/3"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1"
+
+[node name="buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 42.0
+offset_top = 66.0
+offset_right = 42.0
+offset_bottom = 66.0
+
+[node name="Enter" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 48.0
+offset_right = 645.78064
+offset_bottom = 150.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_iq8fq")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxTexture_yo6c0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n6o5a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n6o5a")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_n6o5a")
+text = "    Enter"
+
+[node name="Backspace" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 495.0
+offset_right = 646.0
+offset_bottom = 45.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_n6o5a")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dk385")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fidqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fidqm")
+text = "Backspace"
+
+[node name="Clear" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 419.0
+offset_top = 148.0
+offset_right = 570.0
+offset_bottom = 193.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_n6o5a")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dk385")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fidqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fidqm")
+text = "Clear"
+
+[node name="Space" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 0
+offset_left = 129.0
+offset_top = 198.0
+offset_right = 481.0
+offset_bottom = 243.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontVariation_n6o5a")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dk385")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fidqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fidqm")
+text = "Space"
