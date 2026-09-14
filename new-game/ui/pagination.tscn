@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddil2yucd0e74"]
+
+[ext_resource type="Script" uid="uid://b2fs6swh72ank" path="res://ui/pagination.gd" id="1_jmf1r"]
+
+[node name="pagination" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jmf1r")
+
+[node name="Cell" type="Panel" parent="."]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+offset_left = 67.0
+offset_top = -189.0
+offset_right = 217.0
+offset_bottom = -89.0
+
+[node name="Label" type="Label" parent="Cell"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 47.0
+offset_right = 65.0
+offset_bottom = 70.0
+text = "TEST"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 99.0
+offset_right = 624.0
+offset_bottom = 511.0
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 551.0
+offset_right = 179.0
+offset_bottom = 591.0
+
+[node name="1" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="4" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="5" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="6" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="7" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="8" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+
+[node name="9" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"

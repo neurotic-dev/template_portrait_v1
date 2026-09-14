@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7pawhpk02x3w"]
+
+[ext_resource type="Script" uid="uid://bxf6ljr5ji1vy" path="res://misc/web_get.gd" id="1_ldwqd"]
+
+[node name="WebGet" type="Node"]
+script = ExtResource("1_ldwqd")

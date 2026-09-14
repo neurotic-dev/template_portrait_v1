@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://do5urp6bviakd"]
+
+[ext_resource type="Script" uid="uid://bfxk0p433008s" path="res://game/upgradepopup.gd" id="1_mn6u7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqog0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqog0"]
+
+[node name="upgradepopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mn6u7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = -403.0
+offset_right = 449.0
+offset_bottom = -102.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hqog0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hqog0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hqog0")
+
+[node name="newupgrades" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 314.0
+offset_top = 180.0
+offset_right = 314.0
+offset_bottom = 180.0

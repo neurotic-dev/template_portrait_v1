@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu4o38tj1y878"]
+
+[ext_resource type="Script" uid="uid://cddk6hyjvb38g" path="res://clicker/sample_clicker.gd" id="1_8cpar"]
+[ext_resource type="Script" uid="uid://dgfq6n8beo82k" path="res://clicker/num.gd" id="1_mysba"]
+[ext_resource type="PackedScene" uid="uid://dq3jb36m2vbdy" path="res://ui/notifier.tscn" id="3_n710k"]
+
+[node name="SampleClicker" type="Node2D"]
+script = ExtResource("1_8cpar")
+
+[node name="Num" type="Node" parent="."]
+script = ExtResource("1_mysba")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 46.0
+offset_right = 541.0
+offset_bottom = 101.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "10 (+15/s)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 34.0
+offset_right = 230.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 30
+text = "CLICK ME"
+
+[node name="Save" type="Button" parent="."]
+offset_left = 871.0
+offset_top = 627.0
+offset_right = 1060.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 30
+text = "SAVE"
+
+[node name="Load" type="Button" parent="."]
+offset_left = 1071.0
+offset_top = 627.0
+offset_right = 1260.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 30
+text = "LOAD"
+
+[node name="Upgrader" type="HBoxContainer" parent="."]
+offset_left = 66.0
+offset_top = -280.0
+offset_right = 106.0
+offset_bottom = -240.0
+
+[node name="Tier" type="Label" parent="Upgrader"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "v1: Lvl 1"
+horizontal_alignment = 1
+
+[node name="Level" type="Button" parent="Upgrader"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+Level"
+
+[node name="Label4" type="Label" parent="Upgrader"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cost: +15/s"
+horizontal_alignment = 1
+
+[node name="Second2" type="Button" parent="Upgrader"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+5 per click
+"
+
+[node name="Label3" type="Label" parent="Upgrader"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cost: +15/s"
+horizontal_alignment = 1
+
+[node name="Second" type="Button" parent="Upgrader"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+5 per sec
+"
+
+[node name="Label2" type="Label" parent="Upgrader"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cost: +15/s"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 26.0
+offset_top = 150.0
+offset_right = 1046.0
+offset_bottom = 603.0
+
+[node name="Upgrades" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Notifier" parent="." instance=ExtResource("3_n710k")]
+
+[connection signal="update" from="Num" to="." method="_on_num_update"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

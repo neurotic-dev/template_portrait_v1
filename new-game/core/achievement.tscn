@@ -1,0 +1,249 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfb5xvb3w6wkx"]
+
+[ext_resource type="Script" uid="uid://dei7boxd5kndj" path="res://core/achievement.gd" id="1_awyp3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awyp3"]
+
+[node name="achievement" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_awyp3")
+
+[node name="Progress" type="Label" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 13.0
+offset_right = 828.0
+offset_bottom = 36.0
+text = "NOTE: Click each achievement to progress"
+horizontal_alignment = 1
+
+[node name="Template" type="Panel" parent="."]
+custom_minimum_size = Vector2(324, 113)
+layout_mode = 0
+offset_left = 68.0
+offset_top = -170.0
+offset_right = 392.0
+offset_bottom = -57.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 75.0
+offset_right = 313.0
+offset_bottom = 103.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="Template"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 104.0
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="Title" type="Label" parent="Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 6.0
+offset_right = 318.0
+offset_bottom = 29.0
+text = "Achievement #1"
+
+[node name="Progress" type="Label" parent="Template"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 77.0
+offset_right = 316.0
+offset_bottom = 100.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 35.0
+offset_right = 313.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 10
+text = "Achievement #1"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Template"]
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 114.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_awyp3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_awyp3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 49.0
+offset_right = 1167.0
+offset_bottom = 690.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 1033.0
+offset_bottom = 625.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Template" type="Panel" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(324, 113)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/ScrollContainer/GridContainer/Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 75.0
+offset_right = 313.0
+offset_bottom = 103.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ScrollContainer/GridContainer/Template"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 104.0
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="Title" type="Label" parent="Panel/ScrollContainer/GridContainer/Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 6.0
+offset_right = 318.0
+offset_bottom = 29.0
+text = "Achievement #1"
+
+[node name="Title2" type="Label" parent="Panel/ScrollContainer/GridContainer/Template"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 77.0
+offset_right = 316.0
+offset_bottom = 100.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Panel/ScrollContainer/GridContainer/Template"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 35.0
+offset_right = 313.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 10
+text = "Achievement #1"
+autowrap_mode = 2
+
+[node name="Template2" type="Panel" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(324, 113)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/ScrollContainer/GridContainer/Template2"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 75.0
+offset_right = 313.0
+offset_bottom = 103.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ScrollContainer/GridContainer/Template2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 104.0
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="Title" type="Label" parent="Panel/ScrollContainer/GridContainer/Template2"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 6.0
+offset_right = 318.0
+offset_bottom = 29.0
+text = "Achievement #1"
+
+[node name="Title2" type="Label" parent="Panel/ScrollContainer/GridContainer/Template2"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 77.0
+offset_right = 316.0
+offset_bottom = 100.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Panel/ScrollContainer/GridContainer/Template2"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 35.0
+offset_right = 313.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 10
+text = "Achievement #1"
+autowrap_mode = 2
+
+[node name="Template3" type="Panel" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(324, 113)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/ScrollContainer/GridContainer/Template3"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 75.0
+offset_right = 313.0
+offset_bottom = 103.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ScrollContainer/GridContainer/Template3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 104.0
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="Title" type="Label" parent="Panel/ScrollContainer/GridContainer/Template3"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 6.0
+offset_right = 318.0
+offset_bottom = 29.0
+text = "Achievement #1"
+
+[node name="Title2" type="Label" parent="Panel/ScrollContainer/GridContainer/Template3"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 77.0
+offset_right = 316.0
+offset_bottom = 100.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Panel/ScrollContainer/GridContainer/Template3"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 35.0
+offset_right = 313.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 10
+text = "Achievement #1"
+autowrap_mode = 2

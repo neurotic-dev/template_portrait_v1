@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq3jb36m2vbdy"]
+
+[ext_resource type="Script" uid="uid://bae3ngtoeta3t" path="res://ui/notifier.gd" id="1_xqh8t"]
+
+[node name="Notifier" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xqh8t")

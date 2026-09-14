@@ -1,0 +1,23 @@
+.formatted_description > div > p {
+ border: 2px dashed #fc0000;
+ padding: 25px;
+}
+.game_frame {
+    background-color: transparent;
+}
+div.screenshot_list > a > img {
+  border: 2px solid #fc0000 !important;
+}
+h1.text-center {
+
+    font-size: 52px;
+}
+
+h2.text-center > a {
+
+    font-size: 35px;
+}
+
+.game_frame {
+    background-color: transparent;
+}

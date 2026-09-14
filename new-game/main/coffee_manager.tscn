@@ -1,0 +1,180 @@
+[gd_scene load_steps=13 format=3 uid="uid://jg4p38stamyh"]
+
+[ext_resource type="Script" uid="uid://wjgl8u1ccu1w" path="res://main/coffee_manager.gd" id="1_4b6i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b6i0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fooot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hs1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b6i0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.490196, 0.921569, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1kv7"]
+
+[sub_resource type="Animation" id="Animation_fooot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(268, -572)]
+}
+
+[sub_resource type="Animation" id="Animation_6hs1h"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(268, 110), Vector2(268, -572)]
+}
+
+[sub_resource type="Animation" id="Animation_4b6i0"]
+resource_name = "show"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.328089, 0.355915, 0.366667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(268, -572), Vector2(268, 110), Vector2(268, 125), Vector2(268, 106), Vector2(268, 125), Vector2(268, 110)]
+}
+
+[sub_resource type="Animation" id="Animation_ovo6p"]
+resource_name = "true_hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(268, 110), Vector2(268, -572)]
+}
+
+[sub_resource type="Animation" id="Animation_odqta"]
+resource_name = "true_show"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.328089, 0.355915, 0.366667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(268, -572), Vector2(268, 110), Vector2(268, 125), Vector2(268, 106), Vector2(268, 125), Vector2(268, 110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fooot"]
+_data = {
+&"RESET": SubResource("Animation_fooot"),
+&"hide": SubResource("Animation_6hs1h"),
+&"show": SubResource("Animation_4b6i0"),
+&"true_hide": SubResource("Animation_ovo6p"),
+&"true_show": SubResource("Animation_odqta")
+}
+
+[node name="CoffeeManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4b6i0")
+
+[node name="ChoiceBox" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+offset_left = 570.0
+offset_top = -262.0
+offset_right = 770.0
+offset_bottom = -162.0
+
+[node name="Label" type="Label" parent="ChoiceBox"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 38.0
+offset_right = 197.0
+offset_bottom = 61.0
+text = "Arabica"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ChoiceBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4b6i0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fooot")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6hs1h")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4b6i0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_q1kv7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1kv7")
+
+[node name="ChoicePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 268.0
+offset_top = -572.0
+offset_right = 1093.0
+offset_bottom = -72.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChoicePanel"]
+layout_mode = 0
+offset_right = 819.0
+offset_bottom = 494.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ChoicePanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="ChoicePanel/ScrollContainer/CenterContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ChoicePanel"]
+libraries = {
+&"": SubResource("AnimationLibrary_fooot")
+}
+
+[connection signal="animation_finished" from="ChoicePanel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
