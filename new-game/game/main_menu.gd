@@ -1,16 +1,16 @@
-extends Node2D
+extends Control
 
 @onready var ab = $action_box
 @onready var settings = $settings
 
 func _ready() -> void:
 	ab.connect("done", Callable(self, "_action_done"))
-	$Menu/NewGame.connect("pressed", Callable(self, "_on_new_game"))
-	$Menu/LoadGame.connect("pressed", Callable(self, "_on_load_game"))
-	$Menu/Settings.connect("pressed", Callable(self, "_on_settings"))
-	$Menu/QuitGame.connect("pressed", Callable(self, "_on_quit"))
-	$VersionLabel.text = "v" + Globals.version_code + " (" + Globals.version_name + " version)"
-	$Menu/LoadGame.disabled = !Save.exists()
+	$MarginContainer/bot_left/Menu/NewGame.connect("pressed", Callable(self, "_on_new_game"))
+	$MarginContainer/bot_left/Menu/LoadGame.connect("pressed", Callable(self, "_on_load_game"))
+	$MarginContainer/bot_left/Menu/Settings.connect("pressed", Callable(self, "_on_settings"))
+	$MarginContainer/bot_left/Menu/QuitGame.connect("pressed", Callable(self, "_on_quit"))
+	$MarginContainer/bot_left/VersionLabel.text = "v" + Globals.version_code + " (" + Globals.version_name + " version)"
+	$MarginContainer/bot_left/Menu/LoadGame.disabled = !Save.exists()
 	
 func newgame():
 	Save.update_save(true)
@@ -21,8 +21,8 @@ func loadgame():
 	initialize_game()
 	
 func initialize_game():
-	$Menu/LoadGame.disabled = !Save.exists()
-	Globals.change_scene("res://game/sample_novel.tscn")
+	$MarginContainer/bot_left/Menu/LoadGame.disabled = !Save.exists()
+	Globals.change_scene("res://test_ui/test_hud.tscn")
 	
 func _on_new_game():
 	if Save.exists() == true:

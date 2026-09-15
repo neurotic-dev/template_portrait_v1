@@ -4,13 +4,22 @@
 
 [node name="external_links" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+size_flags_horizontal = 0
 script = ExtResource("1_6rpkh")
 
-[node name="Links" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Links" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -66.0
+offset_right = 91.0
+offset_bottom = 66.0
+grow_vertical = 2
 
 [node name="X" type="Button" parent="Links"]
 layout_mode = 2

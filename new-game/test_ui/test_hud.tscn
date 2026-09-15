@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://byxw57mua0do7"]
+[gd_scene load_steps=19 format=3 uid="uid://byxw57mua0do7"]
 
 [ext_resource type="Texture2D" uid="uid://dyp2y04m6w5ux" path="res://assets/test/background.png" id="1_23bfk"]
+[ext_resource type="Script" uid="uid://ckryag3gb8opw" path="res://test_ui/test_hud.gd" id="1_gboud"]
 [ext_resource type="Texture2D" uid="uid://cbhn3dtg6yx1h" path="res://assets/test/vending_machine.png" id="2_1c7el"]
 [ext_resource type="Texture2D" uid="uid://yi1gwm3ooof5" path="res://assets/test/default_horu_close.png" id="2_nd6d8"]
+[ext_resource type="Texture2D" uid="uid://dayfoenqyyxht" path="res://assets/test/kb/keyboard.png" id="3_gfp8j"]
 [ext_resource type="PackedScene" uid="uid://cfexwoe0l15wm" path="res://test_ui/keyboard.tscn" id="4_u40ft"]
+[ext_resource type="Texture2D" uid="uid://bn3nvde6erqkw" path="res://assets/test/portrait_mockup.png" id="5_axgpu"]
+[ext_resource type="Texture2D" uid="uid://w4btvy8j44rg" path="res://assets/test/kb/keyboard_hover.png" id="5_v30gg"]
+[ext_resource type="Texture2D" uid="uid://caj8wahrilawy" path="res://assets/test/default_horu_open.png" id="7_cenhd"]
+[ext_resource type="Texture2D" uid="uid://do6hxglhry0l3" path="res://assets/test/ui/menu_normal.png" id="9_44pwq"]
+[ext_resource type="Script" uid="uid://c86h8c2cf18aw" path="res://test_ui/dialogue.gd" id="9_kcqkt"]
+[ext_resource type="Script" uid="uid://dxhbxs07phtl0" path="res://game/dialogue_reader.gd" id="10_6arwg"]
+[ext_resource type="Texture2D" uid="uid://doy7x2h23vm3u" path="res://assets/test/ui/menu_hover.png" id="10_cenhd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1c7el"]
 animations = [{
@@ -14,7 +23,72 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nd6d8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nd6d8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cenhd")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 7.0
 }]
+
+[sub_resource type="Animation" id="Animation_44pwq"]
+resource_name = "idle"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animatedsprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.35, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_cenhd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animatedsprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2hy2"]
+_data = {
+&"RESET": SubResource("Animation_cenhd"),
+&"idle": SubResource("Animation_44pwq")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gboud"]
+bg_color = Color(0, 0, 0, 0.8235294)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
 
 [node name="TestHud" type="Control"]
 layout_mode = 3
@@ -23,56 +97,187 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gboud")
 
 [node name="bg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 1600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -800.0
+offset_right = 500.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_23bfk")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="bg"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 643.00006
+offset_right = 571.0
+offset_bottom = 1274.0
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_1c7el")
+
+[node name="cm_keyboard" type="TextureButton" parent="bg/TextureRect"]
+layout_mode = 0
+offset_left = 43.846153
+offset_top = 243.84615
+offset_right = 392.84616
+offset_bottom = 378.84613
+texture_normal = ExtResource("3_gfp8j")
+texture_pressed = ExtResource("5_v30gg")
+texture_hover = ExtResource("5_v30gg")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1000, 1600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -800.0
+offset_right = 500.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="character_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -744.0
+offset_top = -720.0
+offset_right = 106.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+
+[node name="clip" type="Control" parent="character_container"]
+custom_minimum_size = Vector2(744, 900)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="animatedsprite" type="AnimatedSprite2D" parent="character_container/clip"]
+sprite_frames = SubResource("SpriteFrames_1c7el")
+animation = &"idle"
+autoplay = "default"
+centered = false
+flip_h = true
+
+[node name="anim" type="AnimationPlayer" parent="character_container/clip"]
+libraries = {
+&"": SubResource("AnimationLibrary_o2hy2")
+}
+autoplay = "idle"
+
+[node name="keyboard_container" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -483.0
+offset_top = -331.0
+offset_right = 483.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Keyboard" parent="keyboard_container" instance=ExtResource("4_u40ft")]
+layout_mode = 2
+
+[node name="ui1_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 156.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="ui1_container"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("5_axgpu")
+
+[node name="menu" type="TextureButton" parent="ui1_container"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("9_44pwq")
+texture_pressed = ExtResource("10_cenhd")
+texture_hover = ExtResource("10_cenhd")
+
+[node name="dialogue_container" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -345.0
+offset_top = -465.0
+offset_right = 345.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 300
+
+[node name="dialogue" type="Control" parent="dialogue_container"]
+custom_minimum_size = Vector2(690, 200)
+layout_mode = 2
+script = ExtResource("9_kcqkt")
+
+[node name="dialogue_reader" type="Node" parent="dialogue_container/dialogue"]
+script = ExtResource("10_6arwg")
+
+[node name="content" type="Label" parent="dialogue_container/dialogue"]
+custom_minimum_size = Vector2(619, 170)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -309.5
+offset_right = 309.5
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_gboud")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget massa arcu. Integer non blandit est."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 128
+
+[node name="next" type="TextureButton" parent="dialogue_container/dialogue/content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_23bfk")
 
-[node name="TextureRect" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -947.0
-offset_right = 504.0
-grow_vertical = 0
-texture_normal = ExtResource("2_1c7el")
-stretch_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -123.0
-offset_top = -720.0
-offset_right = 123.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 222
-theme_override_constants/margin_bottom = -15
-
-[node name="clip" type="Control" parent="VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(744, 720)
-layout_mode = 2
-
-[node name="animatedsprite" type="AnimatedSprite2D" parent="VBoxContainer/MarginContainer/clip"]
-sprite_frames = SubResource("SpriteFrames_1c7el")
-centered = false
-flip_h = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 120
-
-[node name="Keyboard" parent="VBoxContainer/MarginContainer2" instance=ExtResource("4_u40ft")]
-layout_mode = 2
+[connection signal="pressed" from="bg/TextureRect/cm_keyboard" to="." method="_on_cm_keyboard_pressed"]
+[connection signal="text_entered" from="keyboard_container/Keyboard" to="." method="_on_keyboard_text_entered"]
+[connection signal="pressed" from="ui1_container/menu" to="." method="_on_menu_pressed"]
+[connection signal="finished" from="dialogue_container/dialogue" to="." method="_on_dialogue_finished"]
+[connection signal="talking" from="dialogue_container/dialogue" to="." method="_on_dialogue_talking"]
+[connection signal="pressed" from="dialogue_container/dialogue/content/next" to="dialogue_container/dialogue" method="next_slide"]

@@ -5,21 +5,21 @@ var video_settings_changed = false
 
 var text_speeds = [0.1,0.08,0.05,0.3,0.01]
 
-@onready var audio: VBoxContainer = $TabContainer/Audio
-@onready var windowmode_options: OptionButton = $TabContainer/Video/WindowMode/OptionButton
-@onready var resolution_options: OptionButton = $TabContainer/Video/Resolution/OptionButton
-@onready var tab_container: TabContainer = $TabContainer
+@onready var audio: VBoxContainer = $VBoxContainer/TabContainer/Audio
+@onready var windowmode_options: OptionButton = $VBoxContainer/TabContainer/Video/WindowMode/OptionButton
+@onready var resolution_options: OptionButton = $VBoxContainer/TabContainer/Video/Resolution/OptionButton
+@onready var tab_container: TabContainer = $VBoxContainer/TabContainer
 
-@onready var master_slider: HSlider = $TabContainer/Audio/Master/HSlider
-@onready var bgm_slider: HSlider = $TabContainer/Audio/BGM/HSlider
-@onready var sfx_slider: HSlider = $TabContainer/Audio/SFX/HSlider
-@onready var text_speed_slider: HSlider = $TabContainer/Game/TextSpeed/HSlider
+@onready var master_slider: HSlider = $VBoxContainer/TabContainer/Audio/Master/HSlider
+@onready var bgm_slider: HSlider = $VBoxContainer/TabContainer/Audio/BGM/HSlider
+@onready var sfx_slider: HSlider = $VBoxContainer/TabContainer/Audio/SFX/HSlider
+@onready var text_speed_slider: HSlider = $VBoxContainer/TabContainer/Game/TextSpeed/HSlider
 
 
 
 func _ready() -> void:
 	visible = not visible
-	$Close.pressed.connect(hide_settings)
+	$exit_container/Close.pressed.connect(hide_settings)
 	update_sliders()
 	initialize_music_sliders()
 	initialize_video_options()
@@ -49,7 +49,7 @@ func initialize_music_sliders():
 
 func initialize_video_options():
 	if Globals.is_mobile_device():
-		$TabContainer/Video.queue_free()
+		$VBoxContainer/TabContainer/Video.queue_free()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
 		windowmode_options.item_selected.connect(Callable(Globals, "_on_window_mode_select"))

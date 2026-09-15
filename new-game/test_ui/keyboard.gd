@@ -1,5 +1,7 @@
 extends Control
 
+signal text_entered
+
 @onready var KEY_CONTAINER = $key_container
 @onready var base_button = $Button
 
@@ -21,4 +23,24 @@ func _ready() -> void:
 			n_button.text = k
 			a_node.add_child(n_button)
 			n_button.name = k
+			n_button.connect("pressed",button_pressed.bind(n_button.name))
 	base_button.queue_free()
+
+
+
+func button_pressed(_key) -> void:
+	$LineEdit.insert_text_at_caret(_key)
+
+func _on_clear_pressed() -> void:
+	$LineEdit.clear()
+
+func _on_space_pressed() -> void:
+	$LineEdit.insert_text_at_caret(" ")
+
+func _on_backspace_pressed() -> void:
+	$LineEdit.delete_char_at_caret()
+
+
+func _on_enter_pressed() -> void:
+	emit_signal("text_entered",$LineEdit.text)
+	$LineEdit.clear()

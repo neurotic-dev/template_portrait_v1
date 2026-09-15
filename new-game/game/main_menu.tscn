@@ -3,23 +3,44 @@
 [ext_resource type="Script" uid="uid://khwdw4s2em15" path="res://game/main_menu.gd" id="1_2gctw"]
 [ext_resource type="PackedScene" uid="uid://bbohcqjiydicl" path="res://game/external_links.tscn" id="2_2ed8k"]
 [ext_resource type="PackedScene" uid="uid://b3cbhak0nta3o" path="res://game/action_box.tscn" id="2_20tr2"]
-[ext_resource type="Texture2D" uid="uid://dwc5at0671nl1" path="res://assets/test_scenes/testbg.jpg" id="2_t606k"]
+[ext_resource type="Texture2D" uid="uid://bk2b6nqulokhd" path="res://assets/test/ui/portrait_menu.png" id="2_t606k"]
 [ext_resource type="PackedScene" uid="uid://6p50e5bejksk" path="res://game/settings.tscn" id="3_wo36y"]
 
-[node name="main_menu" type="Node2D"]
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2gctw")
 
 [node name="bg" type="TextureRect" parent="."]
-offset_right = 1288.0
-offset_bottom = 736.0
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_t606k")
-expand_mode = 1
 
-[node name="Title" type="Label" parent="."]
-offset_left = 19.0
-offset_top = 430.0
-offset_right = 1086.0
-offset_bottom = 707.0
+[node name="title_left" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+
+[node name="Title" type="Label" parent="title_left"]
+custom_minimum_size = Vector2(561, 277)
+layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -40
@@ -28,55 +49,74 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 15
 theme_override_constants/shadow_outline_size = 25
 theme_override_font_sizes/font_size = 100
-text = "Girl of the
-Dark Forest"
+text = "Responsive
+Portrait"
 
-[node name="VersionLabel" type="RichTextLabel" parent="."]
-offset_left = 468.0
-offset_top = 676.0
-offset_right = 1268.0
-offset_bottom = 716.0
-bbcode_enabled = true
-text = "version name here"
-horizontal_alignment = 2
-vertical_alignment = 1
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -266.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
-[node name="Menu" type="VBoxContainer" parent="."]
-offset_left = 958.0
-offset_top = 452.0
-offset_right = 1258.0
-offset_bottom = 664.0
+[node name="bot_left" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 
-[node name="NewGame" type="Button" parent="Menu"]
+[node name="Menu" type="VBoxContainer" parent="MarginContainer/bot_left"]
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="MarginContainer/bot_left/Menu"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "New Game"
 
-[node name="LoadGame" type="Button" parent="Menu"]
+[node name="LoadGame" type="Button" parent="MarginContainer/bot_left/Menu"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Continue"
 
-[node name="Settings" type="Button" parent="Menu"]
+[node name="Settings" type="Button" parent="MarginContainer/bot_left/Menu"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Settings"
 
-[node name="QuitGame" type="Button" parent="Menu"]
+[node name="QuitGame" type="Button" parent="MarginContainer/bot_left/Menu"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 
+[node name="VersionLabel" type="RichTextLabel" parent="MarginContainer/bot_left"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+bbcode_enabled = true
+text = "version name here"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="external_links" parent="." instance=ExtResource("2_2ed8k")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
 offset_left = 10.0
 offset_top = 670.0
 offset_right = 10.0
 offset_bottom = 670.0
+grow_vertical = 1
 
 [node name="settings" parent="." instance=ExtResource("3_wo36y")]
+layout_mode = 1
 
 [node name="action_box" parent="." instance=ExtResource("2_20tr2")]
+layout_mode = 1

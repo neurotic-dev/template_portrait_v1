@@ -2,6 +2,25 @@ extends RefCounted
 
 class_name DScript
 
+
+
+
+
+static var sample_story = {
+	"test" : ["Mauris tincidunt posuere erat, iaculis rutrum mi facilisis eget.", "Integer viverra velit nec leo pretium porta.", "Vivamus at neque dapibus, venenatis lectus in, molestie ante.", "Maecenas at dui quis dui sodales lacinia eget efficitur tellus.", "Sed quis sem ac quam luctus sodales ut eu leo.", "Nulla ut luctus orci, et lacinia mi."]
+}
+
+
+
+
+
+
+
+
+
+
+
+
 var story = {
 	"sample1": 
 		

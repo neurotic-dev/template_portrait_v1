@@ -21,8 +21,8 @@ func start_load(_path):
 			rng.randomize()
 			show()
 			tsecs = max_secs - rng.randi_range(1, 3)
-			$ProgressBar.max_value = max_secs
-			$ProgressBar.value = secs
+			$MarginContainer/ProgressBar.max_value = max_secs
+			$MarginContainer/ProgressBar.value = secs
 			$Timer.start(delay)
 		else:
 			get_tree().change_scene_to_file(queue_path)
@@ -40,7 +40,7 @@ func end_load():
 func _on_timer_timeout() -> void:
 	if queue_path != null:
 		secs += 1
-		$ProgressBar.value = secs
+		$MarginContainer/ProgressBar.value = secs
 		
 		if secs > tsecs:
 			get_tree().change_scene_to_file(queue_path)

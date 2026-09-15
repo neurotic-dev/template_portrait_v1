@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
 func _ready() -> void:
-	$Continue.connect("pressed", Callable(self, "_on_continue"))
+	$MarginContainer3/Continue.connect("pressed", Callable(self, "_on_continue"))
 
 func _on_continue() -> void:
 	if $AnimationPlayer.is_playing() == false:

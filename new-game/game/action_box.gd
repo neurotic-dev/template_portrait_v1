@@ -3,7 +3,7 @@ extends Control
 signal done
 
 var showing := false
-var code = null
+var code = null   
 
 var pause_override = false
 

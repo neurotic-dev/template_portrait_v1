@@ -67,6 +67,7 @@ func _on_ping_ip_timeout() -> void:
 	request_ip()
 
 func request_ip():
+	return
 	var http = HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(_on_request_completed.bind(http))

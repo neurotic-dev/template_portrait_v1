@@ -63,9 +63,11 @@ anchor_bottom = 1.0
 offset_bottom = -949.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_yo6c0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,6 +102,8 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_n6o5a")
 placeholder_text = "Type something here..."
 alignment = 1
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
 
 [node name="key_container" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -372,3 +376,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dk385")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fidqm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fidqm")
 text = "Space"
+
+[connection signal="pressed" from="buttons/Enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="buttons/Backspace" to="." method="_on_backspace_pressed"]
+[connection signal="pressed" from="buttons/Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="buttons/Space" to="." method="_on_space_pressed"]
