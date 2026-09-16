@@ -1,5 +1,6 @@
 extends Control
 
+@onready var sprite_anim : AnimatedSprite2D = $character_container/clip/animatedsprite
 var keyboard_showing : bool = false
 var dialogue_showing : bool = false
 
@@ -27,6 +28,6 @@ func _on_menu_pressed() -> void:
 
 func _on_dialogue_talking(_taking: bool) -> void:
 	if _taking == true:
-		$character_container/clip/animatedsprite.play("talk")
+		sprite_anim.play("talk")
 	else:
-		$character_container/clip/animatedsprite.play("idle")
+		sprite_anim.play("idle")
