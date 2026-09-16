@@ -4,6 +4,10 @@ signal text_entered
 
 @onready var KEY_CONTAINER = $key_container
 @onready var base_button = $Button
+@onready var TEXTBOX = $LineEdit
+
+
+var keyboard_active : bool = false
 
 var key_dict = {
 	"0" : ["1","2","3","4","5","6","7","8","9","-"],
@@ -26,21 +30,27 @@ func _ready() -> void:
 			n_button.connect("pressed",button_pressed.bind(n_button.name))
 	base_button.queue_free()
 
+func activate_cursor() -> void:
+	TEXTBOX.grab_focus()
+	keyboard_active = true
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("enter") and keyboard_active == true:
+		_on_enter_pressed()
 
 func button_pressed(_key) -> void:
-	$LineEdit.insert_text_at_caret(_key)
+	TEXTBOX.insert_text_at_caret(_key)
 
 func _on_clear_pressed() -> void:
-	$LineEdit.clear()
+	TEXTBOX.clear()
 
 func _on_space_pressed() -> void:
-	$LineEdit.insert_text_at_caret(" ")
+	TEXTBOX.insert_text_at_caret(" ")
 
 func _on_backspace_pressed() -> void:
-	$LineEdit.delete_char_at_caret()
-
+	TEXTBOX.delete_char_at_caret()
 
 func _on_enter_pressed() -> void:
-	emit_signal("text_entered",$LineEdit.text)
-	$LineEdit.clear()
+	keyboard_active = false
+	emit_signal("text_entered",TEXTBOX.text)
+	TEXTBOX.clear()
