@@ -102,10 +102,10 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_n6o5a")
 placeholder_text = "Type something here..."
 alignment = 1
-virtual_keyboard_enabled = false
-virtual_keyboard_show_on_focus = false
+clear_button_enabled = true
 
 [node name="key_container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 42.0
 offset_top = 66.0
@@ -312,6 +312,7 @@ layout_mode = 2
 text = "1"
 
 [node name="buttons" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 42.0
 offset_top = 66.0

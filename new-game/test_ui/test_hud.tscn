@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://byxw57mua0do7"]
 
-[ext_resource type="Texture2D" uid="uid://dyp2y04m6w5ux" path="res://assets/test/background.png" id="1_23bfk"]
-[ext_resource type="Script" uid="uid://ckryag3gb8opw" path="res://test_ui/test_hud.gd" id="1_gboud"]
+[ext_resource type="Script" path="res://test_ui/test_hud.gd" id="1_gboud"]
 [ext_resource type="Texture2D" uid="uid://cbhn3dtg6yx1h" path="res://assets/test/vending_machine.png" id="2_1c7el"]
+[ext_resource type="Texture2D" uid="uid://dhaegjq3oomj" path="res://assets/test2/coffeemachine.png" id="2_cenhd"]
 [ext_resource type="Texture2D" uid="uid://yi1gwm3ooof5" path="res://assets/test/default_horu_close.png" id="2_nd6d8"]
 [ext_resource type="Texture2D" uid="uid://dayfoenqyyxht" path="res://assets/test/kb/keyboard.png" id="3_gfp8j"]
 [ext_resource type="PackedScene" uid="uid://cfexwoe0l15wm" path="res://test_ui/keyboard.tscn" id="4_u40ft"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://w4btvy8j44rg" path="res://assets/test/kb/keyboard_hover.png" id="5_v30gg"]
 [ext_resource type="Texture2D" uid="uid://caj8wahrilawy" path="res://assets/test/default_horu_open.png" id="7_cenhd"]
 [ext_resource type="Texture2D" uid="uid://do6hxglhry0l3" path="res://assets/test/ui/menu_normal.png" id="9_44pwq"]
-[ext_resource type="Script" uid="uid://c86h8c2cf18aw" path="res://test_ui/dialogue.gd" id="9_kcqkt"]
+[ext_resource type="Script" path="res://test_ui/dialogue.gd" id="9_kcqkt"]
 [ext_resource type="Script" uid="uid://dxhbxs07phtl0" path="res://game/dialogue_reader.gd" id="10_6arwg"]
 [ext_resource type="Texture2D" uid="uid://doy7x2h23vm3u" path="res://assets/test/ui/menu_hover.png" id="10_cenhd"]
 
@@ -113,19 +113,22 @@ offset_right = 500.0
 offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_23bfk")
+texture = ExtResource("2_cenhd")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="bg"]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 643.00006
-offset_right = 571.0
-offset_bottom = 1274.0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -315.5
+offset_right = 431.0
+offset_bottom = 315.5
+grow_vertical = 2
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_1c7el")
 
-[node name="cm_keyboard" type="TextureButton" parent="bg/TextureRect"]
+[node name="cm_keyboard" type="TextureButton" parent="TextureRect"]
 layout_mode = 0
 offset_left = 43.846153
 offset_top = 243.84615
@@ -174,7 +177,7 @@ mouse_filter = 2
 
 [node name="animatedsprite" type="AnimatedSprite2D" parent="character_container/clip"]
 sprite_frames = SubResource("SpriteFrames_1c7el")
-animation = &"idle"
+animation = &"talk"
 autoplay = "default"
 centered = false
 flip_h = true
@@ -275,7 +278,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="bg/TextureRect/cm_keyboard" to="." method="_on_cm_keyboard_pressed"]
+[connection signal="pressed" from="TextureRect/cm_keyboard" to="." method="_on_cm_keyboard_pressed"]
 [connection signal="text_entered" from="keyboard_container/Keyboard" to="." method="_on_keyboard_text_entered"]
 [connection signal="pressed" from="ui1_container/menu" to="." method="_on_menu_pressed"]
 [connection signal="finished" from="dialogue_container/dialogue" to="." method="_on_dialogue_finished"]
